@@ -2,25 +2,25 @@
     "taskrApp": {
         "jobGroup" : {
             "home": {
-                "title": "Job Groups",
-                "createLabel": "Dodaj Job Group",
-                "createOrEditLabel": "Dodaj lub edytuj: Job Group"
+                "title": "Grupy pracownicze",
+                "createLabel": "Dodaj grupę",
+                "createOrEditLabel": "Dodaj lub edytuj: grupa pracownicza"
             },
             "delete": {
-                "question": "Czy na pewno chcesz usunąć Job Group {{ id }}?"
+                "question": "Czy na pewno chcesz usunąć grupę {{ id }}?"
             },
             "detail": {
-                "title": "Job Group"
+                "title": "Grupa Pracownicza"
             },
-            "name": "Name",
-            "authorityLvl": "Authority Lvl"
+            "name": "Nazwa",
+            "authorityLvl": "Poziom Autorytetu"
         }
     },
     "workerApp": {
         "jobGroup" : {
-            "created": "Utworzono nowy Job Group z identyfikatorem {{ param }}",
-            "updated": "Uaktualniono Job Group z identyfikatorem {{ param }}",
-            "deleted": "Usunięto Job Group z identyfikatorem {{ param }}"
+            "created": "Utworzono nową grupę z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono grupę z identyfikatorem {{ param }}",
+            "deleted": "Usunięto grupę z identyfikatorem {{ param }}"
         }
     }
 }

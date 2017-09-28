@@ -1,7 +1,7 @@
 {
     "home": {
-        "title": "Welcome, Java Hipster!",
-        "subtitle": "This is your homepage",
+        "title": "TaskR",
+        "subtitle": "Powerful tool for managing through tasks (powered by JHipster)",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
@@ -11,7 +11,7 @@
             "stackoverflow": "JHipster on Stack Overflow",
             "bugtracker": "JHipster bug tracker",
             "chat": "JHipster public chat room",
-            "follow": "follow @java_hipster on Twitter"
+            "follow": "Follow @java_hipster on Twitter"
         },
         "like": "If you like JHipster, don't forget to give us a star on",
         "github": "GitHub"

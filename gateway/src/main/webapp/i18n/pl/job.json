@@ -2,28 +2,28 @@
     "taskrApp": {
         "job" : {
             "home": {
-                "title": "Jobs",
-                "createLabel": "Dodaj Job",
-                "createOrEditLabel": "Dodaj lub edytuj: Job"
+                "title": "Stanowiska",
+                "createLabel": "Dodaj stanowisko",
+                "createOrEditLabel": "Dodaj lub edytuj: stanowisko"
             },
             "delete": {
-                "question": "Czy na pewno chcesz usunąć Job {{ id }}?"
+                "question": "Czy na pewno chcesz usunąć stanowisko {{ id }}?"
             },
             "detail": {
-                "title": "Job"
+                "title": "Stanowisko"
             },
-            "title": "Title",
-            "minSalary": "Min Salary",
-            "maxSalary": "Max Salary",
-            "groupId": "Group Id",
-            "groupName": "Group Name"
+            "title": "Tytuł",
+            "minSalary": "Pensja min",
+            "maxSalary": "Pensja max",
+            "groupId": "Id Grupy",
+            "groupName": "Nazwa grupy"
         }
     },
     "workerApp": {
         "job" : {
-            "created": "Utworzono nowy Job z identyfikatorem {{ param }}",
-            "updated": "Uaktualniono Job z identyfikatorem {{ param }}",
-            "deleted": "Usunięto Job z identyfikatorem {{ param }}"
+            "created": "Utworzono nowe stanowisko z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono stanowisko z identyfikatorem {{ param }}",
+            "deleted": "Usunięto stanowisko z identyfikatorem {{ param }}"
         }
     }
 }

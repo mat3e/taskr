@@ -2,7 +2,7 @@
     "taskrApp": {
         "task" : {
             "home": {
-                "title": "Tasks",
+                "title": "Taski",
                 "createLabel": "Dodaj Task",
                 "createOrEditLabel": "Dodaj lub edytuj: Task"
             },
@@ -12,13 +12,13 @@
             "detail": {
                 "title": "Task"
             },
-            "dispatchDate": "Dispatch Date",
-            "readDate": "Read Date",
+            "dispatchDate": "Data wysłania",
+            "readDate": "Data przeczytania",
             "userLogin": "User Login",
             "userEmail": "User Email",
             "status": "Status",
-            "title": "Title",
-            "body": "Body"
+            "title": "Tytuł",
+            "body": "Treść"
         }
     },
     "taskApp": {

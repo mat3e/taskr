@@ -2,36 +2,36 @@
     "taskrApp": {
         "worker" : {
             "home": {
-                "title": "Workers",
-                "createLabel": "Dodaj Worker",
-                "createOrEditLabel": "Dodaj lub edytuj: Worker"
+                "title": "Precownicy",
+                "createLabel": "Dodaj pracownika",
+                "createOrEditLabel": "Dodaj lub edytuj: pracownik"
             },
             "delete": {
-                "question": "Czy na pewno chcesz usunąć Worker {{ id }}?"
+                "question": "Czy na pewno chcesz usunąć pracownika {{ id }}?"
             },
             "detail": {
-                "title": "Worker"
+                "title": "Pracownik"
             },
-            "name": "Name",
-            "surname": "Surname",
+            "name": "Imię",
+            "surname": "Nazwisko",
             "userLogin": "User Login",
-            "userEmail": "User Email",
+            "userEmail": "Mail",
             "jobId": "Job Id",
-            "jobTitle": "Job Title",
-            "authorityLvl": "Authority Lvl",
-            "city": "City",
-            "street": "Street",
-            "house": "House",
-            "apartment": "Apartment",
-            "postalCode": "Postal Code",
-            "post": "Post"
+            "jobTitle": "Tytuł",
+            "authorityLvl": "Poziom autorytetu",
+            "city": "Miasto",
+            "street": "Ulica",
+            "house": "Nr domu",
+            "apartment": "Nr mieszkania",
+            "postalCode": "Kod pocztowy",
+            "post": "poczta"
         }
     },
     "workerApp": {
         "worker" : {
-            "created": "Utworzono nowy Worker z identyfikatorem {{ param }}",
-            "updated": "Uaktualniono Worker z identyfikatorem {{ param }}",
-            "deleted": "Usunięto Worker z identyfikatorem {{ param }}"
+            "created": "Utworzono nowego pracownika z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono pracownika z identyfikatorem {{ param }}",
+            "deleted": "Usunięto pracownika z identyfikatorem {{ param }}"
         }
     }
 }
