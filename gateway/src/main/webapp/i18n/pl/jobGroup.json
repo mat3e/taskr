@@ -1,0 +1,26 @@
+{
+    "taskrApp": {
+        "jobGroup" : {
+            "home": {
+                "title": "Job Groups",
+                "createLabel": "Dodaj Job Group",
+                "createOrEditLabel": "Dodaj lub edytuj: Job Group"
+            },
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Job Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Job Group"
+            },
+            "name": "Name",
+            "authorityLvl": "Authority Lvl"
+        }
+    },
+    "workerApp": {
+        "jobGroup" : {
+            "created": "Utworzono nowy Job Group z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Job Group z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Job Group z identyfikatorem {{ param }}"
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "dispatchDate",
+            "javadoc": "Date when sender sent the message.",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "readDate",
+            "javadoc": "Date when recipient read the message.",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "userLogin",
+            "javadoc": "Assigned user.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userEmail",
+            "javadoc": "Assigned user e-mail. Denormalization.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "TaskStatus",
+            "fieldValues": "DRAFT,PENDING,SENT,READ,IN_PROGRESS,DONE,ERROR"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 1
+        },
+        {
+            "fieldName": "body",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 1
+        }
+    ],
+    "changelogDate": "20170928222033",
+    "javadoc": "Central application structure.",
+    "entityTableName": "task",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "microserviceName": "task"
+}

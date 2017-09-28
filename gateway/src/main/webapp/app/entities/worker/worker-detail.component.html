@@ -1,0 +1,73 @@
+
+<div *ngIf="worker">
+    <h2><span jhiTranslate="taskrApp.worker.detail.title">Worker</span> {{worker.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="taskrApp.worker.name">Name</span></dt>
+        <dd>
+            <span>{{worker.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.surname">Surname</span></dt>
+        <dd>
+            <span>{{worker.surname}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.userLogin">User Login</span></dt>
+        <dd>
+            <span>{{worker.userLogin}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.userEmail">User Email</span></dt>
+        <dd>
+            <span>{{worker.userEmail}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.jobId">Job Id</span></dt>
+        <dd>
+            <span>{{worker.jobId}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.jobTitle">Job Title</span></dt>
+        <dd>
+            <span>{{worker.jobTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.authorityLvl">Authority Lvl</span></dt>
+        <dd>
+            <span>{{worker.authorityLvl}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.city">City</span></dt>
+        <dd>
+            <span>{{worker.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.street">Street</span></dt>
+        <dd>
+            <span>{{worker.street}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.house">House</span></dt>
+        <dd>
+            <span>{{worker.house}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.apartment">Apartment</span></dt>
+        <dd>
+            <span>{{worker.apartment}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.postalCode">Postal Code</span></dt>
+        <dd>
+            <span>{{worker.postalCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="taskrApp.worker.post">Post</span></dt>
+        <dd>
+            <span>{{worker.post}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'worker/'+ worker.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

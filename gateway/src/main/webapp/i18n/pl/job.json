@@ -1,0 +1,29 @@
+{
+    "taskrApp": {
+        "job" : {
+            "home": {
+                "title": "Jobs",
+                "createLabel": "Dodaj Job",
+                "createOrEditLabel": "Dodaj lub edytuj: Job"
+            },
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Job {{ id }}?"
+            },
+            "detail": {
+                "title": "Job"
+            },
+            "title": "Title",
+            "minSalary": "Min Salary",
+            "maxSalary": "Max Salary",
+            "groupId": "Group Id",
+            "groupName": "Group Name"
+        }
+    },
+    "workerApp": {
+        "job" : {
+            "created": "Utworzono nowy Job z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Job z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Job z identyfikatorem {{ param }}"
+        }
+    }
+}

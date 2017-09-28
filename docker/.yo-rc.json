@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "gateway",
+      "task",
+      "uaa",
+      "worker"
+    ],
+    "directoryPath": "../",
+    "gatewayType": "zuul",
+    "clusteredDbApps": [],
+    "monitoring": "elk",
+    "consoleOptions": [
+      "zipkin"
+    ],
+    "serviceDiscoveryType": "consul",
+    "jwtSecretKey": "39909487b663d540afcbed4ccacf120a724fbf3e"
+  }
+}

@@ -1,0 +1,23 @@
+#common configuration shared between all applications
+configserver:
+    name: Docker JHipster Registry
+    status: Connected to Consul running in Docker
+
+jhipster:
+    security:
+        authentication:
+            jwt:
+                secret: 39909487b663d540afcbed4ccacf120a724fbf3e
+    logging:
+        logstash: # forward logs to ELK
+            enabled: true
+            host: jhipster-logstash
+    metrics:
+        logs: # report metrics in the logs
+            enabled: true
+            report-frequency: 60 # in seconds
+spring:
+    zipkin:
+        base-url: http://jhipster-zipkin:9411
+        enabled: true
+

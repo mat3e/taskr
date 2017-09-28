@@ -1,0 +1,37 @@
+{
+    "taskrApp": {
+        "worker" : {
+            "home": {
+                "title": "Workers",
+                "createLabel": "Dodaj Worker",
+                "createOrEditLabel": "Dodaj lub edytuj: Worker"
+            },
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Worker {{ id }}?"
+            },
+            "detail": {
+                "title": "Worker"
+            },
+            "name": "Name",
+            "surname": "Surname",
+            "userLogin": "User Login",
+            "userEmail": "User Email",
+            "jobId": "Job Id",
+            "jobTitle": "Job Title",
+            "authorityLvl": "Authority Lvl",
+            "city": "City",
+            "street": "Street",
+            "house": "House",
+            "apartment": "Apartment",
+            "postalCode": "Postal Code",
+            "post": "Post"
+        }
+    },
+    "workerApp": {
+        "worker" : {
+            "created": "Utworzono nowy Worker z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Worker z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Worker z identyfikatorem {{ param }}"
+        }
+    }
+}

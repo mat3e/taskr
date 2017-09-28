@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "io.github.mat3e.jhipster.taskr",
+      "nativeLanguage": "pl"
+    },
+    "jhipsterVersion": "4.9.0",
+    "baseName": "worker",
+    "packageName": "io.github.mat3e.jhipster.taskr",
+    "packageFolder": "io/github/mat3e/jhipster/taskr",
+    "serverPort": "8082",
+    "authenticationType": "uaa",
+    "uaaBaseName": "uaa",
+    "hibernateCache": "no",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "consul",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "6a0976174930063a30454ed81b95a77d405898ac",
+    "enableTranslation": true,
+    "applicationType": "microservice",
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "skipClient": true,
+    "skipUserManagement": true,
+    "nativeLanguage": "pl",
+    "languages": [
+      "pl",
+      "en"
+    ],
+    "clientPackageManager": "yarn"
+  }
+}

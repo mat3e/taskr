@@ -1,0 +1,188 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myWorkerLabel" jhiTranslate="taskrApp.worker.home.createOrEditLabel">Create or edit a Worker</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!worker.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="worker.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="worker.name" required minlength="1" />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.surname" for="field_surname">Surname</label>
+            <input type="text" class="form-control" name="surname" id="field_surname"
+                [(ngModel)]="worker.surname" required minlength="1" />
+            <div [hidden]="!(editForm.controls.surname?.dirty && editForm.controls.surname?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.surname?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.surname?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.userLogin" for="field_userLogin">User Login</label>
+            <input type="text" class="form-control" name="userLogin" id="field_userLogin"
+                [(ngModel)]="worker.userLogin" required />
+            <div [hidden]="!(editForm.controls.userLogin?.dirty && editForm.controls.userLogin?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.userLogin?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.userEmail" for="field_userEmail">User Email</label>
+            <input type="text" class="form-control" name="userEmail" id="field_userEmail"
+                [(ngModel)]="worker.userEmail" required />
+            <div [hidden]="!(editForm.controls.userEmail?.dirty && editForm.controls.userEmail?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.userEmail?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.jobId" for="field_jobId">Job Id</label>
+            <input type="text" class="form-control" name="jobId" id="field_jobId"
+                [(ngModel)]="worker.jobId" required />
+            <div [hidden]="!(editForm.controls.jobId?.dirty && editForm.controls.jobId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.jobId?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.jobTitle" for="field_jobTitle">Job Title</label>
+            <input type="text" class="form-control" name="jobTitle" id="field_jobTitle"
+                [(ngModel)]="worker.jobTitle" required />
+            <div [hidden]="!(editForm.controls.jobTitle?.dirty && editForm.controls.jobTitle?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.jobTitle?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.authorityLvl" for="field_authorityLvl">Authority Lvl</label>
+            <input type="number" class="form-control" name="authorityLvl" id="field_authorityLvl"
+                [(ngModel)]="worker.authorityLvl"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.city" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                [(ngModel)]="worker.city" required minlength="1" />
+            <div [hidden]="!(editForm.controls.city?.dirty && editForm.controls.city?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.city?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.city?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.street" for="field_street">Street</label>
+            <input type="text" class="form-control" name="street" id="field_street"
+                [(ngModel)]="worker.street" required minlength="1" />
+            <div [hidden]="!(editForm.controls.street?.dirty && editForm.controls.street?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.street?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.street?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.house" for="field_house">House</label>
+            <input type="text" class="form-control" name="house" id="field_house"
+                [(ngModel)]="worker.house" required minlength="1" />
+            <div [hidden]="!(editForm.controls.house?.dirty && editForm.controls.house?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.house?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.house?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.apartment" for="field_apartment">Apartment</label>
+            <input type="text" class="form-control" name="apartment" id="field_apartment"
+                [(ngModel)]="worker.apartment"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.postalCode" for="field_postalCode">Postal Code</label>
+            <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+                [(ngModel)]="worker.postalCode" required minlength="6" maxlength="6" />
+            <div [hidden]="!(editForm.controls.postalCode?.dirty && editForm.controls.postalCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.postalCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.postalCode?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 6 }">
+                   This field is required to be at least 6 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.postalCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 6 }">
+                   This field cannot be longer than 6 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="taskrApp.worker.post" for="field_post">Post</label>
+            <input type="text" class="form-control" name="post" id="field_post"
+                [(ngModel)]="worker.post" required minlength="1" />
+            <div [hidden]="!(editForm.controls.post?.dirty && editForm.controls.post?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.post?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.post?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
