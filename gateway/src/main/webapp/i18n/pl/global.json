@@ -8,6 +8,8 @@
             "entities": {
                 "main": "Encje",
                 "task": "Taski",
+                "task_sent": "Wysłane",
+                "task_handle": "Do zrobienia",
                 "job": "Stanowiska",
                 "jobGroup": "Grupy pracownicze",
                 "worker": "Pracownicy",

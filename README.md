@@ -10,5 +10,8 @@ This is more or less a ticket system, which uses the following JHipster features
 ## [Commit 1](https://github.com/mat3e/taskr/commit/7ce6d0b09fb76a56e40ed776cd4c459e48d63172)
 App, entities and docker compose generated.
 
-## Commit 2
+## [Commit 2](https://github.com/mat3e/taskr/commit/8be5cdc56da1e1c37bad33763ca56fa82a7d425a)
 Polishing the translations :)
+
+## Commit 3
+Main menu changes, less columns in tables.

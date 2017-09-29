@@ -2,7 +2,7 @@
     "taskrApp": {
         "worker" : {
             "home": {
-                "title": "Precownicy",
+                "title": "Pracownicy",
                 "createLabel": "Dodaj pracownika",
                 "createOrEditLabel": "Dodaj lub edytuj: pracownik"
             },
@@ -24,7 +24,7 @@
             "house": "Nr domu",
             "apartment": "Nr mieszkania",
             "postalCode": "Kod pocztowy",
-            "post": "poczta"
+            "post": "Poczta"
         }
     },
     "workerApp": {

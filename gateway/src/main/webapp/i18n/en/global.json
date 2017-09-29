@@ -8,6 +8,8 @@
             "entities": {
                 "main": "Entities",
                 "task": "Tasks",
+                "task_sent": "Sent Tasks",
+                "task_handle": "Tasks to handle",
                 "job": "Jobs",
                 "jobGroup": "Job Groups",
                 "worker": "Workers",
