@@ -4,11 +4,13 @@ import com.codahale.metrics.annotation.Timed;
 import io.github.mat3e.jhipster.taskr.domain.Job;
 
 import io.github.mat3e.jhipster.taskr.repository.JobRepository;
+import io.github.mat3e.jhipster.taskr.security.AuthoritiesConstants;
 import io.github.mat3e.jhipster.taskr.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,6 +25,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
+@Secured(AuthoritiesConstants.ADMIN)
 public class JobResource {
 
     private final Logger log = LoggerFactory.getLogger(JobResource.class);

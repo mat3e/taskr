@@ -13,5 +13,8 @@ App, entities and docker compose generated.
 ## [Commit 2](https://github.com/mat3e/taskr/commit/8be5cdc56da1e1c37bad33763ca56fa82a7d425a)
 Polishing the translations :)
 
-## Commit 3
+## [Commit 3](https://github.com/mat3e/taskr/commit/cd2cbacc8bd04eeb6f8f884b4392bef96da82e6e)
 Main menu changes, less columns in tables.
+
+## Commit 4
+Worker Microservice - secured, better forms.
