@@ -77,16 +77,40 @@ public class TaskResource {
     }
 
     /**
-     * GET  /tasks : get all the tasks.
+     * Special way of updating statuses.
+     *
+     * @param id the id of the task
+     * @return updated task
+     */
+    @PutMapping(value = "/tasks/{id}", params = { "status" })
+    public ResponseEntity<Task> updateStatus(@PathVariable String id) {
+        Task result = taskService.updateStatus(id);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, id)).body(result);
+    }
+
+    /**
+     * GET  /tasks : get all the tasks assigned to the current user.
      *
      * @return the ResponseEntity with status 200 (OK) and the list of tasks in body
      */
     @GetMapping("/tasks")
     @Timed
     public List<Task> getAllTasks() {
-        log.debug("REST request to get all Tasks");
-        return taskService.findAll();
-        }
+        log.debug("REST request to get Tasks");
+        return getAllTasks(false);
+    }
+
+    /**
+     * GET  /tasks : get all the tasks either sent by the current user or assigned to him.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of tasks in body
+     */
+    @GetMapping(value = "/tasks", params = { "sent" })
+    @Timed
+    public List<Task> getAllTasks(@RequestParam(value = "sent") boolean sentByCurrUser) {
+        log.debug("REST request to get Tasks");
+        return taskService.findAll(sentByCurrUser);
+    }
 
     /**
      * GET  /tasks/:id : get the "id" task.
@@ -100,19 +124,5 @@ public class TaskResource {
         log.debug("REST request to get Task : {}", id);
         Task task = taskService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(task));
-    }
-
-    /**
-     * DELETE  /tasks/:id : delete the "id" task.
-     *
-     * @param id the id of the task to delete
-     * @return the ResponseEntity with status 200 (OK)
-     */
-    @DeleteMapping("/tasks/{id}")
-    @Timed
-    public ResponseEntity<Void> deleteTask(@PathVariable String id) {
-        log.debug("REST request to delete Task : {}", id);
-        taskService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id)).build();
     }
 }

@@ -35,6 +35,13 @@ export class WorkerService {
         });
     }
 
+    findByLogin(login: string): Observable<Worker> {
+        return this.http.get(`${this.resourceUrl}?login=${login}`).map((res: Response) => {
+            const jsonResponse = res.json();
+            return this.convertItemFromServer(jsonResponse);
+        });
+    }
+
     query(req?: any): Observable<ResponseWrapper> {
         const options = createRequestOption(req);
         return this.http.get(this.resourceUrl, options)

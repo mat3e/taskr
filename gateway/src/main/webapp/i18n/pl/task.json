@@ -3,7 +3,7 @@
         "task" : {
             "home": {
                 "title": "Taski",
-                "createLabel": "Dodaj Task",
+                "createLabel": "Nowy Task",
                 "createOrEditLabel": "Dodaj lub edytuj: Task"
             },
             "delete": {
@@ -25,7 +25,10 @@
         "task" : {
             "created": "Utworzono nowy Task z identyfikatorem {{ param }}",
             "updated": "Uaktualniono Task z identyfikatorem {{ param }}",
-            "deleted": "Usunięto Task z identyfikatorem {{ param }}"
+            "deleted": "Usunięto Task z identyfikatorem {{ param }}",
+            "send": "Wyślij Task",
+            "start": "Rozpocznij Task",
+            "finish": "Zamknij Task"
         }
     }
 }

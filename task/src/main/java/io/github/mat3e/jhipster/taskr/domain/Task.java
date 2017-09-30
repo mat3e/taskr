@@ -17,7 +17,7 @@ import io.github.mat3e.jhipster.taskr.domain.enumeration.TaskStatus;
  */
 @ApiModel(description = "Central application structure.")
 @Document(collection = "task")
-public class Task implements Serializable {
+public class Task extends AbstractAuditingEntity {
 
     private static final long serialVersionUID = 1L;
     @Id

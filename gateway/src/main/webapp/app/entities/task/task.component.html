@@ -1,7 +1,7 @@
-<div>
+<div [ngSwitch]="displaySentTasks">
     <h2>
         <span jhiTranslate="taskrApp.task.home.title">Tasks</span>
-        <button class="btn btn-primary float-right jh-create-entity create-task" [routerLink]="['/', { outlets: { popup: ['task-new'] } }]">
+        <button *ngSwitchCase="true" class="btn btn-primary float-right jh-create-entity create-task" [routerLink]="['/', { outlets: { popup: ['task-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="taskrApp.task.home.createLabel">
             Create new Task
@@ -17,8 +17,8 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="taskrApp.task.dispatchDate">Dispatch Date</span></th>
-            <th><span jhiTranslate="taskrApp.task.readDate">Read Date</span></th>
+            <th *ngSwitchCase="false"><span jhiTranslate="taskrApp.task.dispatchDate">Dispatch Date</span></th>
+            <th *ngSwitchCase="true"><span jhiTranslate="taskrApp.task.readDate">Read Date</span></th>
             <th><span jhiTranslate="taskrApp.task.userEmail">User Email</span></th>
             <th><span jhiTranslate="taskrApp.task.status">Status</span></th>
             <th><span jhiTranslate="taskrApp.task.title">Title</span></th>
@@ -27,16 +27,16 @@
             </thead>
             <tbody>
             <tr *ngFor="let task of tasks ;trackBy: trackId">
-                <td><a [routerLink]="['../task', task.id ]">{{task.id}}</a></td>
-                <td>{{task.dispatchDate | date:'medium'}}</td>
-                <td>{{task.readDate | date:'medium'}}</td>
+                <td><a [routerLink]="['../', (displaySentTasks ? 'sent' : 'mine'), task.id ]" >{{task.id}}</a></td>
+                <td *ngSwitchCase="false">{{task.dispatchDate | date:'medium'}}</td>
+                <td *ngSwitchCase="true">{{task.readDate | date:'medium'}}</td>
                 <td>{{task.userEmail}}</td>
                 <td jhiTranslate="{{'taskrApp.TaskStatus.' + task.status}}">{{task.status}}</td>
                 <td>{{task.title}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
-                                [routerLink]="['../task', task.id ]"
+                                [routerLink]="['../', (displaySentTasks ? 'sent' : 'mine'), task.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
@@ -44,16 +44,13 @@
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'task/'+ task.id + '/edit'} }]"
                                 replaceUrl="true"
+                                *ngIf="displaySentTasks && task.isDraft"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'task/'+ task.id + '/delete'} }]"
-                                replaceUrl="true"
-                                class="btn btn-danger btn-sm">
-                            <span class="fa fa-remove"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        <button type="button" class="btn btn-primary btn-sm" *ngIf="displaySentTasks && task.isDraft" (click)="changeStatus(task)">
+                            <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="taskApp.task.send"> Send</span>
                         </button>
                     </div>
                 </td>

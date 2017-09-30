@@ -17,11 +17,11 @@ public interface TaskService {
     Task save(Task task);
 
     /**
-     *  Get all the tasks.
+     *  Get all the tasks either sent by the current user or assigned to him.
      *
      *  @return the list of entities
      */
-    List<Task> findAll();
+    List<Task> findAll(boolean sentByCurrUser);
 
     /**
      *  Get the "id" task.
@@ -37,4 +37,11 @@ public interface TaskService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    /**
+     * Change the status to a given one.
+     *
+     * @param id
+     */
+    Task updateStatus(String id);
 }

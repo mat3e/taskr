@@ -2,6 +2,7 @@ package io.github.mat3e.jhipster.taskr.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codahale.metrics.annotation.Timed;
@@ -26,6 +28,7 @@ import io.github.jhipster.web.util.ResponseUtil;
 import io.github.mat3e.jhipster.taskr.domain.Worker;
 import io.github.mat3e.jhipster.taskr.repository.WorkerRepository;
 import io.github.mat3e.jhipster.taskr.security.AuthoritiesConstants;
+import io.github.mat3e.jhipster.taskr.security.SecurityUtils;
 import io.github.mat3e.jhipster.taskr.web.rest.util.HeaderUtil;
 
 /**
@@ -98,8 +101,14 @@ public class WorkerResource {
     @Timed
     public List<Worker> getAllWorkers() {
         log.debug("REST request to get all Workers");
-        return workerRepository.findAll();
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)) {
+            return workerRepository.findAll();
+        } else if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.USER)) {
+            Integer userLvl = workerRepository.findByUserLogin(SecurityUtils.getCurrentUserLogin()).getAuthorityLvl();
+            return workerRepository.findByAuthorityLvlLessThanEqual(userLvl);
         }
+        return Collections.emptyList();
+    }
 
     /**
      * GET  /workers/:id : get the "id" worker.
@@ -113,6 +122,21 @@ public class WorkerResource {
     public ResponseEntity<Worker> getWorker(@PathVariable String id) {
         log.debug("REST request to get Worker : {}", id);
         Worker worker = workerRepository.findOne(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(worker));
+    }
+
+    /**
+     * GET /workers?login=admin : get the admin user.
+     *
+     * @param login username
+     * @return proper user
+     */
+    @GetMapping(value = "/workers/", params = { "login" })
+    @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
+    public ResponseEntity<Worker> getWorkerByLogin(@RequestParam String login) {
+        log.debug("REST request to get Worker : {}", login);
+        Worker worker = workerRepository.findByUserLogin(login);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(worker));
     }
 

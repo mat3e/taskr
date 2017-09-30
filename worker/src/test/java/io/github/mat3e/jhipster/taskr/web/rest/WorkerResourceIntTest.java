@@ -367,28 +367,14 @@ public class WorkerResourceIntTest {
     }
 
     @Test
-    public void getAllWorkers() throws Exception {
+    public void getAllWorkersWhenAnonymous() throws Exception {
         // Initialize the database
         workerRepository.save(worker);
 
         // Get all the workerList
-        restWorkerMockMvc.perform(get("/api/workers?sort=id,desc"))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(worker.getId())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].surname").value(hasItem(DEFAULT_SURNAME.toString())))
-            .andExpect(jsonPath("$.[*].userLogin").value(hasItem(DEFAULT_USER_LOGIN.toString())))
-            .andExpect(jsonPath("$.[*].userEmail").value(hasItem(DEFAULT_USER_EMAIL.toString())))
-            .andExpect(jsonPath("$.[*].jobId").value(hasItem(DEFAULT_JOB_ID.toString())))
-            .andExpect(jsonPath("$.[*].jobTitle").value(hasItem(DEFAULT_JOB_TITLE.toString())))
-            .andExpect(jsonPath("$.[*].authorityLvl").value(hasItem(DEFAULT_AUTHORITY_LVL)))
-            .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY.toString())))
-            .andExpect(jsonPath("$.[*].street").value(hasItem(DEFAULT_STREET.toString())))
-            .andExpect(jsonPath("$.[*].house").value(hasItem(DEFAULT_HOUSE.toString())))
-            .andExpect(jsonPath("$.[*].apartment").value(hasItem(DEFAULT_APARTMENT.toString())))
-            .andExpect(jsonPath("$.[*].postalCode").value(hasItem(DEFAULT_POSTAL_CODE.toString())))
-            .andExpect(jsonPath("$.[*].post").value(hasItem(DEFAULT_POST.toString())));
+        restWorkerMockMvc.perform(get("/api/workers?sort=id,desc")).andExpect(status().isOk())
+                         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                         .andExpect(content().json("[]"));
     }
 
     @Test

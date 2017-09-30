@@ -16,5 +16,8 @@ Polishing the translations :)
 ## [Commit 3](https://github.com/mat3e/taskr/commit/cd2cbacc8bd04eeb6f8f884b4392bef96da82e6e)
 Main menu changes, less columns in tables.
 
-## Commit 4
+## [Commit 4](https://github.com/mat3e/taskr/commit/91833ebc0059b9b37a7e7c43ebf53679b13ae93a)
 Worker Microservice - secured, better forms.
+
+## Commit 5
+Task Microservice - possibility to send tasks.

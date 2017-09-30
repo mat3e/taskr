@@ -13,20 +13,31 @@ import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
     templateUrl: './task.component.html'
 })
 export class TaskComponent implements OnInit, OnDestroy {
-tasks: Task[];
+    tasks: Task[];
     currentAccount: any;
     eventSubscriber: Subscription;
+    tasksSubscriber: Subscription;
+
+    displaySentTasks: boolean;
 
     constructor(
         private taskService: TaskService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
-        private principal: Principal
+        private principal: Principal,
+        private route: ActivatedRoute
     ) {
     }
 
+    changeStatus(task) {
+        this.taskService.changeStatus(task.id).subscribe((updatedTask) => {
+            var taskFromArray = this.tasks.find((t) => t.id === updatedTask.id);
+            taskFromArray.status = updatedTask.status;
+        });
+    }
+
     loadAll() {
-        this.taskService.query().subscribe(
+        this.taskService.query({sent: this.displaySentTasks}).subscribe(
             (res: ResponseWrapper) => {
                 this.tasks = res.json;
             },
@@ -34,20 +45,32 @@ tasks: Task[];
         );
     }
     ngOnInit() {
-        this.loadAll();
+
+        this.tasksSubscriber = this.route.params.subscribe((params) => {
+            this.whichChanged(params['which']);
+        });
+
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
+
         this.registerChangeInTasks();
     }
 
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
+        this.eventManager.destroy(this.tasksSubscriber);
+    }
+
+    whichChanged(which: string) {
+        this.displaySentTasks = which === 'sent';
+        this.loadAll();
     }
 
     trackId(index: number, item: Task) {
         return item.id;
     }
+
     registerChangeInTasks() {
         this.eventSubscriber = this.eventManager.subscribe('taskListModification', (response) => this.loadAll());
     }

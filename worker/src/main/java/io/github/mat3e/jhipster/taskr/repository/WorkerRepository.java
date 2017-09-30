@@ -1,6 +1,9 @@
 package io.github.mat3e.jhipster.taskr.repository;
 
+import java.util.List;
+
 import io.github.mat3e.jhipster.taskr.domain.Worker;
+
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,5 +14,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 @SuppressWarnings("unused")
 @Repository
 public interface WorkerRepository extends MongoRepository<Worker, String> {
+    Worker findByUserLogin(String login);
 
+    List<Worker> findByAuthorityLvlLessThanEqual(int lvl);
 }

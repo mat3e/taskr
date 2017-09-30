@@ -30,6 +30,13 @@ export class TaskService {
         });
     }
 
+    changeStatus(id: String): Observable<Task> {
+        return this.http.put(`${this.resourceUrl}/${id}?status=true`, {}).map((res: Response) => {
+            const jsonResponse = res.json();
+            return this.convertItemFromServer(jsonResponse);
+        });
+    }
+
     find(id: string): Observable<Task> {
         return this.http.get(`${this.resourceUrl}/${id}`).map((res: Response) => {
             const jsonResponse = res.json();
@@ -39,6 +46,7 @@ export class TaskService {
 
     query(req?: any): Observable<ResponseWrapper> {
         const options = createRequestOption(req);
+        options.params.set('sent', req ? req.sent : false);
         return this.http.get(this.resourceUrl, options)
             .map((res: Response) => this.convertResponse(res));
     }

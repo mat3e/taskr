@@ -11,7 +11,7 @@ import { TaskDeletePopupComponent } from './task-delete-dialog.component';
 
 export const taskRoute: Routes = [
     {
-        path: 'task',
+        path: 'task/:which',
         component: TaskComponent,
         data: {
             authorities: ['ROLE_USER'],
@@ -19,7 +19,7 @@ export const taskRoute: Routes = [
         },
         canActivate: [UserRouteAccessService]
     }, {
-        path: 'task/:id',
+        path: 'task/:which/:id',
         component: TaskDetailComponent,
         data: {
             authorities: ['ROLE_USER'],

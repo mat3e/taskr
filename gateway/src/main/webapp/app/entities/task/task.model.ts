@@ -22,4 +22,8 @@ export class Task implements BaseEntity {
         public body?: string,
     ) {
     }
+
+    get isDraft(): boolean { return this.status === "DRAFT" as any; }
+    get isRead(): boolean { return this.status === "READ" as any; }
+    get isInProgress(): boolean { return this.status === "IN_PROGRESS" as any; }
 }

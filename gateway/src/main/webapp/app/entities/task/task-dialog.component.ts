@@ -6,6 +6,10 @@ import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
+import { ResponseWrapper } from '../../shared';
+
+import { Worker } from '../worker/worker.model';
+import { WorkerService } from '../worker/worker.service';
 import { Task } from './task.model';
 import { TaskPopupService } from './task-popup.service';
 import { TaskService } from './task.service';
@@ -19,16 +23,31 @@ export class TaskDialogComponent implements OnInit {
     task: Task;
     isSaving: boolean;
 
+    displaySentTasks: boolean;
+
+    workers: Worker[];
+    taskWorker: Worker;
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private taskService: TaskService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private workerService: WorkerService,
+        private route: ActivatedRoute
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+
+        this.displaySentTasks = location.href.indexOf('sent') !== -1;
+        this.workerService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.workers = res.json;
+            },
+            (res: ResponseWrapper) => this.onError(res.json)
+        );
     }
 
     clear() {
@@ -37,7 +56,10 @@ export class TaskDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
+        this.task.userLogin = this.taskWorker.userLogin;
+        this.task.userEmail = this.taskWorker.userEmail;
         if (this.task.id !== undefined) {
+            //todo: findByLogin z serwisu, żeby działał update
             this.subscribeToSaveResponse(
                 this.taskService.update(this.task));
         } else {

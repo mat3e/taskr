@@ -37,7 +37,10 @@ spring:
                     zk-nodes: localhost
             bindings:
                 output:
-                    destination: topic-jhipster
+                    destination: checkingChannel
+                    content-type: application/json
+                input:
+                    destination: validatedChannel
     data:
         mongodb:
             uri: mongodb://localhost:27017
