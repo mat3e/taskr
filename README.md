@@ -1,5 +1,5 @@
 # taskr
-Demo JHipster application for managing through Tasks.
+Demo JHipster application for managing through Tasks [[repo]](https://github.com/mat3e/taskr).
 
 App is going to be presented on various workshops/events. This GH page is for storing PowerPoint and other helper files for presentations.
 
